@@ -1,6 +1,12 @@
-#### `For API_KEY from the relevant site:`
-[OpenWheather](https://openweathermap.org/)
+## `For API_KEY from the relevant site:`
+Current weather data from [OpenWheather](https://openweathermap.org/).
 
+### `Call current weather data for one location`
+#### By city ID:
+    api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}
+
+#### By geographic coordinates:
+    api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
 
 # Getting Started with Create React App
