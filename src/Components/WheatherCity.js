@@ -32,6 +32,20 @@ function WheatherCity({ cityData }) {
             <Typography gutterBottom variant="h5" component="h2">
               {cityData.name}
             </Typography>
+            <Typography gutterBottom variant="body1" component="p">
+              {cityData.weather}
+            </Typography>
+            <Typography gutterBottom variant="h2" component="h2">
+              {cityData.temp}°
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Y:{cityData.temp_max}° D:{cityData.temp_min}°
+            </Typography>
+
+            <br /> <br />
+            <br /> <br />
+            
+            
             <Typography variant="body2" color="textSecondary" component="p">
               ID: {cityData.id} <br />
               Name: {cityData.name} <br />
