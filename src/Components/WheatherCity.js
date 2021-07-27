@@ -1,11 +1,11 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 function WheatherCity({ cityData }) {
@@ -16,11 +16,18 @@ function WheatherCity({ cityData }) {
     media: {
       height: 140,
     },
+    card: {
+      width: "100%",
+      borderRadius: 16,
+      boxShadow: "0 8px 16px 0 #BDC9D7",
+      overflow: "hidden",
+    },
   });
 
   const classes = useStyles();
+
   return (
-    <div>
+    <Container maxWidth="sm" align="center">
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
@@ -33,7 +40,7 @@ function WheatherCity({ cityData }) {
               {cityData.name}
             </Typography>
             <Typography gutterBottom variant="body1" component="p">
-              {cityData.weather}
+              {cityData.weather} <br /> ({cityData.description})
             </Typography>
             <Typography gutterBottom variant="h2" component="h2">
               {cityData.temp}°
@@ -41,29 +48,18 @@ function WheatherCity({ cityData }) {
             <Typography variant="body2" color="textSecondary" component="p">
               Y:{cityData.temp_max}° D:{cityData.temp_min}°
             </Typography>
-
-            <br /> <br />
-            <br /> <br />
-            
-            
             <Typography variant="body2" color="textSecondary" component="p">
-              ID: {cityData.id} <br />
-              Name: {cityData.name} <br />
-              Lat: {cityData.lat} <br />
-              Lon: {cityData.lon} <br />
+              <br />
+              Lat: {cityData.lat} Lon: {cityData.lon} <br />
+              Pressure: {cityData.pressure} hPa <br />
+              Humidity: {cityData.humidity}% <br />
+              Wind: {cityData.windSpeed} mps {cityData.windDeg}° <br />
+              Sunrise: {cityData.sunrise} | Sunset: {cityData.sunset}
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
       </Card>
-    </div>
+    </Container>
   );
 }
 

@@ -1,9 +1,10 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default function SearchCity({ data, city, setCity, setCityID }) {
+export default function SearchCity({ data, city, setCity, setCityID, setCities }) {
   const useStyles = makeStyles({
     root: {
       maxWidth: 345,
@@ -22,13 +23,11 @@ export default function SearchCity({ data, city, setCity, setCityID }) {
     const arrayOfCities = data.filter(
       (stadt) => stadt.name.includes(city) && stadt.country === "DE"
     );
+    setCities(arrayOfCities);
     setCityID(arrayOfCities[0].id);
-    // console.log(cityData.coord.lon);
-    // setLat(cityData.coord.lat);
-    // setLon(cityData.coord.lon);
   }
   return (
-    <div>
+    <Container>
       <form
         className={classes.root}
         onSubmit={handleSubmit}
@@ -42,11 +41,10 @@ export default function SearchCity({ data, city, setCity, setCityID }) {
           defaultValue={city}
           onChange={getCity}
         />
-        <br />
         <Button type="submit" variant="contained">
           Submit
         </Button>
       </form>
-    </div>
+    </Container>
   );
 }
