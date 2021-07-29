@@ -5,7 +5,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-
+import clear from '../images/clear.webp'
+import clouds from '../images/clouds.webp'
 import { makeStyles } from "@material-ui/core/styles";
 
 function WheatherCity({ cityData }) {
@@ -32,7 +33,7 @@ function WheatherCity({ cityData }) {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image="https://cdn.pixabay.com/photo/2018/05/22/19/32/clouds-3422258_960_720.jpg"
+            image={cityData.weather === "Clear" ? clear : clouds}
             title="Contemplative Reptile"
           />
           <CardContent>
