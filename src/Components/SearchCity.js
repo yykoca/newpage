@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default function SearchCity({ data, city, setCity, setCityID, setCities }) {
   const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+      width: 345,
     },
     media: {
       height: 140,
@@ -27,21 +27,21 @@ export default function SearchCity({ data, city, setCity, setCityID, setCities }
     setCityID(arrayOfCities[0].id);
   }
   return (
-    <Container>
-      <form
+    <Container fluid>
+      <form style={{margin:"0 auto"}}
         className={classes.root}
         onSubmit={handleSubmit}
         noValidate
         autoComplete="off"
       >
-        <TextField
+        <TextField fullWidth style={{margin:"0 5px 0 0"}}
           id="standard-secondary"
           label="City Name"
           color="secondary"
           defaultValue={city}
           onChange={getCity}
         />
-        <Button type="submit" variant="contained">
+        <Button fullWidth type="submit" variant="contained" style={{margin:"3px 0 10px 0"}}>
           Submit
         </Button>
       </form>
