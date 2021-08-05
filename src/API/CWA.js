@@ -18,8 +18,9 @@ function makeCityWheatherDetails(cityData) {
   };
 }
 
-async function getWheatherByCityID(cityID, apiKey) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=${apiKey}`;
+async function getWheatherByCityID(city, apiKey) {
+  // const url = `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
   return await fetch(url)
     .then((response) => response.json())
     .then((data) => makeCityWheatherDetails(data));
