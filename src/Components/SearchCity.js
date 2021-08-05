@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default function SearchCity({ data, city, setCity, setCityID, setCities }) {
+export default function SearchCity({ inputValue, setInputValue, setCity }) {
   const useStyles = makeStyles({
     root: {
       width: 345,
@@ -16,32 +16,38 @@ export default function SearchCity({ data, city, setCity, setCityID, setCities }
 
   const classes = useStyles();
   const getCity = (e) => {
-    setCity(e.target.value);
+    setInputValue(e.target.value);
   };
-  function handleSubmit(event) {
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const arrayOfCities = data.filter(
-      (stadt) => stadt.name.includes(city) && stadt.country === "DE"
-    );
-    setCities(arrayOfCities);
-    setCityID(arrayOfCities[0].id);
-  }
+    setCity(inputValue);
+  };
+
   return (
     <Container fluid>
-      <form style={{margin:"0 auto"}}
+      <form
+        style={{ margin: "0 auto" }}
         className={classes.root}
         onSubmit={handleSubmit}
         noValidate
         autoComplete="off"
       >
-        <TextField fullWidth style={{margin:"0 5px 0 0"}}
+        <TextField
+          fullWidth
+          style={{ margin: "0 5px 0 0" }}
           id="standard-secondary"
           label="City Name"
           color="secondary"
-          defaultValue={city}
+          defaultValue={inputValue}
           onChange={getCity}
         />
-        <Button fullWidth type="submit" variant="contained" style={{margin:"3px 0 10px 0"}}>
+        <Button
+          fullWidth
+          type="submit"
+          variant="contained"
+          style={{ margin: "3px 0 10px 0" }}
+        >
           Submit
         </Button>
       </form>
