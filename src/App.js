@@ -1,4 +1,4 @@
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 import { React, useState, useEffect } from "react";
 import data from "./city.list.json";
 import CWA from "./API/CWA";
@@ -6,28 +6,27 @@ import CWA from "./API/CWA";
 import SearchCity from "./Components/SearchCity";
 import WheatherCity from "./Components/WheatherCity";
 import "./App.css";
-// dotenv.config();
+dotenv.config();
 
 function App() {
-  const [cityID, setCityID] = useState(2864475);
+  const [city, setCity] = useState("Savsat");
   const [cityData, setCityData] = useState({});
   const [cities, setCities] = useState([]);
-  const [city, setCity] = useState(null);
+  const [inputValue, setInputValue] = useState(null);
 
   useEffect(() => {
-    // CWA.getWheatherByCityID(cityID, process.env.API_KEY).then((dataOfCity) =>
-    CWA.getWheatherByCityID(cityID, "7acb6899f20cac69098920ef1aeb6365").then(
+    CWA.getWheatherByCityID(city, process.env.REACT_APP_API_KEY).then(
       (dataOfCity) => setCityData(dataOfCity)
     );
-  }, [cityID]);
+  }, [city]);
 
   return (
     <div>
       <SearchCity
         data={data}
-        city={city}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
         setCity={setCity}
-        setCityID={setCityID}
         cities={cities}
         setCities={setCities}
       />
