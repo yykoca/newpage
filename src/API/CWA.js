@@ -3,6 +3,7 @@ function makeCityWheatherDetails(cityData) {
     id: cityData.id,
     name: cityData.name,
     weather: cityData.weather[0].main,
+    icon: cityData.weather[0].icon,
     description: cityData.weather[0].description,
     temp: Math.floor(cityData.main.temp - 273.15),
     temp_max: Math.floor(cityData.main.temp_max - 273.15),
