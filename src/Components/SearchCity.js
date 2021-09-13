@@ -25,9 +25,9 @@ export default function SearchCity({ inputValue, setInputValue, setCity }) {
   };
 
   return (
-    <Container fluid>
+    <Container fluid="true">
       <form
-        style={{ margin: "0 auto" }}
+        style={{ margin: "5% auto" }}
         className={classes.root}
         onSubmit={handleSubmit}
         noValidate
