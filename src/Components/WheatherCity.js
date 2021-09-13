@@ -5,8 +5,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import clear from '../images/clear.webp'
-import clouds from '../images/clouds.webp'
 import { makeStyles } from "@material-ui/core/styles";
 
 function WheatherCity({ cityData }) {
@@ -15,7 +13,8 @@ function WheatherCity({ cityData }) {
       maxWidth: 345,
     },
     media: {
-      height: 140,
+      height: 100,
+      width: 100,
     },
     card: {
       width: "100%",
@@ -33,7 +32,7 @@ function WheatherCity({ cityData }) {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={cityData.weather === "Clear" ? clear : clouds}
+            image={`http://openweathermap.org/img/wn/${cityData.icon}@2x.png`}
             title="Contemplative Reptile"
           />
           <CardContent>
