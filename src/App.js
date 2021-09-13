@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import { React, useState, useEffect } from "react";
 import data from "./city.list.json";
 import CWA from "./API/CWA";
-// import Search from "./Components/Search";
 import SearchCity from "./Components/SearchCity";
 import WheatherCity from "./Components/WheatherCity";
 import "./App.css";
@@ -31,8 +30,6 @@ function App() {
         setCities={setCities}
       />
       <WheatherCity cityData={cityData} />
-
-      {/* <Search city={city} setCity={setCity} cities={cities} /> */}
     </div>
   );
 }
